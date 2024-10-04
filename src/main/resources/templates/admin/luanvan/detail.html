@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="admin/include/htmlHeader">
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<div th:insert="admin/include/htmlMenu"></div>
+
+
+<!-- FEATURE -->
+<div class="container">
+    <h2><img src="/icons/63760_documents_icon.png" height="48" width="48"/> Chi tiết Luận Văn</h2>
+    <!-- Thông tin Luận Văn -->
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Tên Luận Văn/Chủ đề: <span th:text="${luanVan.tenLuanVan}"></span></h5>
+            <p class="card-text"><strong>Ngày Bảo Vệ:</strong> <span th:text="${luanVan.ngayBaoVe}"></span></p>
+            <p class="card-text"><strong>Điểm:</strong> <span th:text="${luanVan.diem}"></span></p>
+            <p class="card-text"><strong>Môn học:</strong> <span th:text="${luanVan.monHoc.tenMon}"></span></p>
+            <p class="card-text"><strong>Chuyên khoa:</strong> <span th:text="${luanVan.monHoc.chuyenKhoa.tenChuyenKhoa}"></span></p>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th style="text-align: center"><h3 class="mt-4"><img src="/icons/27839_copy_curriculum vitae_documents_resume_icon.png" height="48" width="48"/>  Học Viên Thực Hiện</h3></th>
+            <th style="text-align: center"><h3 class="mt-4"><img src="/icons/27839_copy_curriculum vitae_documents_resume_icon.png" height="48" width="48"/>  Giảng Viên Hướng Dẫn</h3></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <!-- Thông tin Học Viên -->
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Tên Học Viên: <span th:text="${hocVien.hoTen}"></span></h5>
+                        <p class="card-text"><strong>Mã học viên:</strong> <span th:text="${hocVien.maHocVien}"></span></p>
+                        <p class="card-text"><strong>Ngày sinh:</strong> <span th:text="${hocVien.ngaySinh}"></span></p>
+                        <p class="card-text"><strong>Năm nhập học:</strong> <span th:text="${hocVien.namNhapHoc}"></span></p>
+                        <p class="card-text"><strong>Email:</strong> <span th:text="${hocVien.email}"></span></p>
+                        <p class="card-text"><strong>Số Điện Thoại:</strong> <span th:text="${hocVien.soDienThoai}"></span></p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <!-- Thông tin Giảng Viên Hướng Dẫn -->
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Tên Giảng Viên: <span th:text="${giangVien.hoTen}"></span></h5>
+                        <p class="card-text"><strong>Email:</strong> <span th:text="${giangVien.email}"></span></p>
+                        <p class="card-text"><strong>Số Điện Thoại:</strong> <span th:text="${giangVien.soDienThoai}"></span></p>
+                        <p class="card-text"><strong>Học hàm:</strong> <span th:text="${giangVien.hocHam}"></span></p>
+                        <p class="card-text"><strong>Học vị:</strong> <span th:text="${giangVien.hocVi}"></span></p>
+                        <p class="card-text"><strong>Chuyên khoa phụ trách</strong>:</strong> <span th:text="${giangVien.chuyenKhoa.tenChuyenKhoa}"></span></p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Danh sách các Luận Văn khác -->
+    <h3 class="mt-4"><img src="/icons/27840_copy_documents_duplicate_files_icon.png" height="48" width="48"/>  Các Luận Văn Khác</h3><br/>  
+    <div class="list-group">
+        <a th:href="@{/luanvan/detail/{id}(id=${otherLuanVan.id})}" th:each="otherLuanVan : ${otherLuanVans}"
+           class="list-group-item list-group-item-action">
+            <span th:text="${otherLuanVan.tenLuanVan}">Tên Luận Văn</span>
+        </a>
+    </div>
+</div>
+<footer id="footer">
+
+</footer>
+</body>
+</html>

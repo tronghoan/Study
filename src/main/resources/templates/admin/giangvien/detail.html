@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="admin/include/htmlHeader">
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- PRE LOADER -->
+
+<!-- MENU -->
+
+<div th:insert="admin/include/htmlMenu"></div>
+
+
+<!-- FEATURE -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-4">
+            <h2><img src="/icons/27839_copy_curriculum vitae_documents_resume_icon.png" height="48"
+                     width="48"/>Thông tin Giảng Viên</h2>
+
+            <!-- Thông tin Giảng Viên -->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">Họ Tên: <span th:text="${giangVien.hoTen}"></span></h5>
+                    <p class="card-text"><strong>Học Vị:</strong> <span th:text="${giangVien.hocVi}"></span></p>
+                    <p class="card-text"><strong>Học Hàm:</strong> <span th:text="${giangVien.hocHam}"></span></p>
+                    <p class="card-text"><strong>Email:</strong> <span th:text="${giangVien.email}"></span></p>
+                    <p class="card-text"><strong>Số Điện Thoại:</strong> <span
+                            th:text="${giangVien.soDienThoai}"></span></p>
+                </div>
+            </div>
+
+            <!-- Môn học do Giảng Viên giảng dạy -->
+            <h3 class="mt-4"><img src="/icons/27862_paste_icon.png" height="48"
+                                  width="48"/>Môn học giảng dạy</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Mã Môn</th>
+                    <th>Tên Môn</th>
+                    <th>Số Tín Chỉ</th>
+                    <th>Kỳ Học</th>
+                    <th>Năm Học</th>
+                    <th style="text-align: center">Xem chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="monHoc : ${monHocList}">
+                    <td th:text="${monHoc.monHoc.maMon}"></td>
+                    <td th:text="${monHoc.monHoc.tenMon}"></td>
+                    <td th:text="${monHoc.monHoc.soTinChi}"></td>
+                    <td th:text="${monHoc.hocKy}"></td>
+                    <td th:text="${monHoc.namHoc}"></td>
+                    <td style="text-align: center">  <a th:href="@{/monhoc/detail/{maMonHoc}(maMonHoc=${monHoc.id})}"><img
+                            style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Luận văn do Giảng Viên hướng dẫn -->
+            <h3 class="mt-4"><img src="/icons/27840_copy_documents_duplicate_files_icon.png" height="48"
+                                  width="48"/>Luận văn hướng dẫn</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Tên Luận Văn</th>
+                    <th>Học Viên</th>
+                    <th>Ngày Bảo Vệ</th>
+                    <th>Điểm</th>
+                    <th style="text-align: center">Xem chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="luanVan : ${luanVanList}">
+                    <td th:text="${luanVan.tenLuanVan}"></td>
+                    <td th:text="${luanVan.hocVien.hoTen}"></td>
+                    <td th:text="${luanVan.ngayBaoVe}"></td>
+                    <td th:text="${luanVan.diem}"></td>
+                    <td style="text-align: center">  <a th:href="@{/luanvan/detail/{maLuanVan}(maLuanVan=${luanVan.id})}"><img
+                            style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Lớp học do giảng viên phụ trách -->
+            <h3 class="mt-4"><img src="/icons/27856_out_exit_sign out_icon.png" height="48"
+                                  width="48"/>Lớp học giảng dạy</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Mã lớp</th>
+                    <th>Ngày nhập học</th>
+                    <th>Ngày tốt nghiệp</th>
+                    <th>Chuyên khoa</th>
+                    <th style="text-align: center">Xem chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="lophoc : ${lopHocList}">
+                    <td th:text="${lophoc.maLop}"></td>
+                    <td th:text="${lophoc.ngayKetThuc}"></td>
+                    <td th:text="${lophoc.ngayKetThuc}"></td>
+                    <td th:text="${lophoc.chuyenKhoa.tenChuyenKhoa}"></td>
+                    <td style="text-align: center">  <a th:href="@{/lophoc/detail/{maLopHoc}(maLopHoc=${lophoc.id})}"><img
+                            style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Danh sách các Giảng Viên khác -->
+            <h3 class="mt-4"><img src="/icons/27859_blank_document_file_paper_icon.png" height="48"
+                                  width="48"/>Các Giảng Viên Khác</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Họ Tên</th>
+                    <th>Email</th>
+                    <th>Số Điện Thoại</th>
+                    <th style="text-align: center">Xem chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="otherGiangVien : ${otherGiangViens}">
+                    <td th:text="${otherGiangVien.hoTen}"></td>
+                    <td th:text="${otherGiangVien.email}"></td>
+                    <td th:text="${otherGiangVien.soDienThoai}"></td>
+                    <td style="text-align: center">  <a th:href="@{/giangvien/detail/{maGiangVien}(maGiangVien=${otherGiangVien.id})}"><img
+                            style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+
+</footer>
+</body>
+</html>

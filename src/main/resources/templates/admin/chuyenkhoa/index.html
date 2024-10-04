@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="/admin/include/htmlHeader.html"></head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- PRE LOADER -->
+
+<!-- MENU -->
+<!-- MENU LINKS -->
+<div th:insert="/admin/include/htmlMenu.html"></div>
+
+<!-- FEATURE -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-4">
+            <h3><img src="/icons/37405_documents_folder_icon.png" height="48" width="48"/> Ngành học/Chuyên Khoa</h3>
+            <p>Danh sách Ngành học/Chuyên khoa chương trình đào tạo sau đại học</p>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="text-align: center">Mã chuyên khoa</th>
+                    <th style="text-align: center">Tên Chuyên khoa</th>
+                    <th style="text-align: center">Thông tin khoá học</th>
+                    <th style="text-align: center">Quản lý</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="chuyenkhoa : ${chuyenKhoas}">
+                    <td th:text="${chuyenkhoa.maChuyenKhoa}"></td>
+                    <td th:text="${chuyenkhoa.tenChuyenKhoa}"></td>
+                    <td th:text="${chuyenkhoa.moTa}"></td>
+                    <td style="text-align: center">
+                        <a th:href="@{/chuyenkhoa/edit/{maChuyenKhoa}(maChuyenKhoa=${chuyenkhoa.id})}"><img style="width: 25px; height: auto"
+                                src="/icons/icons8-edit-file-96.png"/></a>
+                        <a th:href="@{/chuyenkhoa/delete/{maChuyenKhoa}(maChuyenKhoa=${chuyenkhoa.id})}"><img style="width: 25px; height: auto"
+                                src="/icons/icons8-delete-trash-96.png"/></a>
+                        <a th:href="@{/chuyenkhoa/detail/{maChuyenKhoa}(maChuyenKhoa=${chuyenkhoa.id})}"><img style="width: 25px; height: auto"
+                                src="/icons/icons8-tiles-96.png"/></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+
+<!-- TEAM -->
+
+
+<!-- Courses -->
+
+
+<!-- TESTIMONIAL -->
+
+
+<!-- CONTACT -->
+
+
+<!-- FOOTER -->
+<footer id="footer">
+
+</footer>
+
+
+</body>
+</html>

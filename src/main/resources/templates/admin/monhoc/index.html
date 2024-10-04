@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="admin/include/htmlHeader">
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- PRE LOADER -->
+
+<!-- MENU -->
+
+<div th:insert="admin/include/htmlMenu"></div>
+
+
+<!-- FEATURE -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-4">
+            <h3><img src="/icons/27859_blank_document_file_paper_icon.png" height="48" width="48"/>Danh sách môn học</h3>
+            <p>Danh sách môn học của chương trình đào tạo sau đại học</p>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="text-align: center">Mã môn học</th>
+                    <th style="text-align: center">Tên Môn học</th>
+                    <th style="text-align: center">Tên chuyên khoa</th>
+                    <th style="text-align: center">Mô tả</th>
+                    <th style="text-align: center">Học kỳ</th>
+                    <th style="text-align: center">Số tín chỉ</th>
+                    <th style="text-align: center">Quản lý</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="monhoc : ${monHocs}">
+                    <td th:text="${monhoc.maMon}"></td>
+                    <td th:text="${monhoc.tenMon}"></td>
+                    <td th:text="${monhoc.chuyenKhoa.tenChuyenKhoa}"></td>
+                    <td th:text="${monhoc.moTa}"></td>
+                    <td style="text-align: center" th:text="${monhoc.kyHoc}"></td>
+                    <td style="text-align: center" th:text="${monhoc.soTinChi}"></td>
+                    <td style="text-align: center">
+                        <a th:href="@{/monhoc/edit/{maMonHoc}(maMonHoc=${monhoc.id})}"><img style="width: 25px; height: auto"
+                                                                                                src="/icons/icons8-edit-file-96.png"/></a>
+                        <a th:href="@{/monhoc/delete/{maMonHoc}(maMonHoc=${monhoc.id})}"><img style="width: 25px; height: auto"
+                                                                                                  src="/icons/icons8-delete-trash-96.png"/></a>
+                        <a th:href="@{/monhoc/detail/{maMonHoc}(maMonHoc=${monhoc.id})}"><img
+                                style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+
+<!-- TEAM -->
+
+
+<!-- Courses -->
+
+
+<!-- TESTIMONIAL -->
+
+
+<!-- CONTACT -->
+
+
+<!-- FOOTER -->
+<footer id="footer">
+
+</footer>
+
+
+</body>
+</html>

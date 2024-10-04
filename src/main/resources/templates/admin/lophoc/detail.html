@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<header th:replace="admin/include/htmlHeader"></header>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- MENU LINKS -->
+<div th:replace="admin/include/htmlMenu"></div>
+
+
+<!-- FEATURE -->
+<div class="container">
+    <div class="row">
+        <h2><img src="/icons/6771584_black board_education_learning_nuclear_school_icon.png" height="48" width="48"/> Chi tiết Lớp Học</h2>
+
+        <!-- Thông tin Lớp Học -->
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Mã Lớp: <span th:text="${lopHoc.maLop}"></span></h5>
+                <p class="card-text"><strong>Khoá học:</strong> <span th:text="${lopHoc.khoaHoc.tenKhoaHoc}"></span></p>
+                <p class="card-text"><strong>Chuyên Khoa:</strong> <span
+                        th:text="${lopHoc.chuyenKhoa.tenChuyenKhoa}"></span></p>
+                <p class="card-text"><strong>Ngày Bắt Đầu:</strong> <span th:text="${lopHoc.ngayBatDau}"></span></p>
+                <p class="card-text"><strong>Ngày Kết Thúc:</strong> <span th:text="${lopHoc.ngayKetThuc}"></span></p>
+                <p class="card-text"><strong>Sĩ số:</strong> <span th:text="${hocVienList.size()}"></span>
+                </p>
+            </div>
+        </div>
+        <!-- Danh sách Học Viên -->
+        <h3 class="mt-3"><img src="/icons/27862_paste_icon.png" height="48" width="48"/> Danh sách Học Viên</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th style="text-align: center">Mã Học Viên</th>
+                <th style="text-align: center">Họ Tên</th>
+                <th style="text-align: center">Email</th>
+                <th style="text-align: center">Số Điện Thoại</th>
+                <th style="text-align: center">Xem chi tiết</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dangKyLop : ${hocVienList}">
+                <td th:text="${dangKyLop.hocVien.maHocVien}"></td>
+                <td th:text="${dangKyLop.hocVien.hoTen}"></td>
+                <td th:text="${dangKyLop.hocVien.email}"></td>
+                <td th:text="${dangKyLop.hocVien.soDienThoai}"></td>
+                <td style="text-align: center">
+                    <a th:href="@{/hocvien/detail/{maHocVien}(maHocVien=${dangKyLop.hocVien.maHocVien})}"><img
+                            style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

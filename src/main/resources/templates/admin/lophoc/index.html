@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="admin/include/htmlHeader">
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- PRE LOADER -->
+
+<!-- MENU -->
+
+<div th:insert="admin/include/htmlMenu"></div>
+
+
+<!-- FEATURE -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-4">
+            <h3><img src="/icons/6771584_black board_education_learning_nuclear_school_icon.png" height="48" width="48"/> Lớp học chương trình sau Đại học</h3>
+            <p>Danh sách lớp học</p>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="text-align: center">Mã lớp học</th>
+                    <th style="text-align: center">Số lượng học viên</th>
+                    <th style="text-align: center">Ngày bắt đầu</th>
+                    <th style="text-align: center">Ngày kết thúc</th>
+                    <th style="text-align: center">Quản lý</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="lophoc : ${lopHocs}">
+                    <td th:text="${lophoc.maLop}"></td>
+                    <td th:text="${lophoc.soLuongToiDa}"></td>
+                    <td th:text="${lophoc.ngayBatDau}"></td>
+                    <td th:text="${lophoc.ngayKetThuc}"></td>
+                    <td style="text-align: center">
+                        <a th:href="@{/lophoc/edit/{maLopHoc}(maLopHoc=${lophoc.id})}"><img style="width: 25px; height: auto"
+                                                                                                            src="/icons/icons8-edit-file-96.png"/></a>
+                        <a th:href="@{/lophoc/delete/{maLopHoc}(maLopHoc=${lophoc.id})}"><img style="width: 25px; height: auto"
+                                                                                                              src="/icons/icons8-delete-trash-96.png"/></a>
+                        <a th:href="@{/lophoc/detail/{maLopHoc}(maLopHoc=${lophoc.id})}"><img
+                                style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+
+<!-- TEAM -->
+
+
+<!-- Courses -->
+
+
+<!-- TESTIMONIAL -->
+
+
+<!-- CONTACT -->
+
+
+<!-- FOOTER -->
+<footer id="footer">
+
+</footer>
+
+
+</body>
+</html>

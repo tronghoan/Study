@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="admin/include/htmlHeader">
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- PRE LOADER -->
+
+<!-- MENU -->
+
+<div th:insert="admin/include/htmlMenu"></div>
+
+
+<!-- FEATURE -->
+<div class="container">
+       <div class="row">
+        <div class="col-md-12 col-sm-4">
+            <h3><img src="/icons/27839_copy_curriculum vitae_documents_resume_icon.png" height="48" width="48"/> Giảng viên</h3>
+            <p>Danh sách giảng viên</p>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="text-align: center">STT</th>
+                    <th style="text-align: center">Tên giảng viên</th>
+                    <th style="text-align: center">Học hàm</th>
+                    <th style="text-align: center">Học vị</th>
+                    <th style="text-align: center">Email</th>
+                    <th style="text-align: center">Điện thoại</th>
+                    <th style="text-align: center">Xem chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="giangvien : ${giangViens}">
+                    <td th:text="${giangvien.id}"></td>
+                    <td th:text="${giangvien.hoTen}"></td>
+                    <td th:text="${giangvien.hocHam}"></td>
+                    <td th:text="${giangvien.hocVi}"></td>
+                    <td th:text="${giangvien.email}"></td>
+                    <td th:text="${giangvien.soDienThoai}"></td>
+                    <td style="text-align: center">
+                        <a th:href="@{/giangvien/edit/{maGiangVien}(maGiangVien=${giangvien.id})}"><img style="width: 25px; height: auto"
+                                                                                                            src="/icons/icons8-edit-file-96.png"/></a>
+                        <a th:href="@{/giangvien/delete/{maGiangVien}(maGiangVien=${giangvien.id})}"><img style="width: 25px; height: auto"
+                                                                                                              src="/icons/icons8-delete-trash-96.png"/></a>
+                        <a th:href="@{/giangvien/detail/{maGiangVien}(maGiangVien=${giangvien.id})}"><img
+                                style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+
+<!-- TEAM -->
+
+
+<!-- Courses -->
+
+
+<!-- TESTIMONIAL -->
+
+
+<!-- CONTACT -->
+
+
+<!-- FOOTER -->
+<footer id="footer">
+
+</footer>
+
+
+</body>
+</html>

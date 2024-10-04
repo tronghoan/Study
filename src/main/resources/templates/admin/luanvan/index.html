@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="admin/include/htmlHeader">
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- PRE LOADER -->
+
+<!-- MENU -->
+
+<div th:insert="admin/include/htmlMenu"></div>
+
+
+<!-- FEATURE -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-4">
+            <h3><img src="/icons/63760_documents_icon.png" height="48" width="48"/> Luận văn tốt nghiệp</h3>
+            <p>Danh sách bài Luận văn của học viên tham gia đào tạo sau đại học</p>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="text-align: center">Tên luận văn</th>
+                    <th style="text-align: center">Tên môn học</th>
+                    <th style="text-align: center">Học viên thực hiện</th>
+                    <th style="text-align: center">Giảng viên hướng dẫn</th>
+                    <th style="text-align: center">Điểm</th>
+                    <th style="text-align: center">Xem chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="luanvan : ${luanVans}">
+                    <td th:text="${luanvan.tenLuanVan}"></td>
+                    <td th:text="${luanvan.monHoc.tenMon}"></td>
+                    <td th:text="${luanvan.hocVien.hoTen}"></td>
+                    <td th:text="${luanvan.giangVien.hoTen}"></td>
+                    <td th:text="${luanvan.diem}"></td>
+                    <td style="text-align: center">
+                        <a th:href="@{/luanvan/edit/{maLuanVan}(maLuanVan=${luanvan.id})}"><img style="width: 25px; height: auto"
+                                                                                                    src="/icons/icons8-edit-file-96.png"/></a>
+                        <a th:href="@{/luanvan/delete/{maLuanVan}(maLuanVan=${luanvan.id})}"><img style="width: 25px; height: auto"
+                                                                                                      src="/icons/icons8-delete-trash-96.png"/></a>
+                        <a th:href="@{/luanvan/detail/{maLuanVan}(maLuanVan=${luanvan.id})}"><img
+                                style="width: 25px; height: auto" src="/icons/icons8-tiles-96.png"/></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+
+<!-- TEAM -->
+
+
+<!-- Courses -->
+
+
+<!-- TESTIMONIAL -->
+
+
+<!-- CONTACT -->
+
+
+<!-- FOOTER -->
+<footer id="footer">
+
+</footer>
+
+
+</body>
+</html>
