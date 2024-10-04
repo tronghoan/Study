@@ -1,4 +1,5 @@
 Chương trình quản lý sau đào tạo trường ĐHHB
+Spring boot, Java, MySQL
 Chương trình đang phát triển và trong quá trình hoàn thiện. Mong nhận được góp ý
 Phục vụ cho Luận văn tốt nghiệp
 - Quản lý khoá học
